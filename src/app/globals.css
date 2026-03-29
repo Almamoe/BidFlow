@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Cairo:wght@400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #0C0C0E;
+    color: #ECECEC;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(52, 211, 153, 0.2);
+    color: #d1fae5;
+  }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           font-semibold text-sm
+           transition-all duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed
+           active:translate-y-0;
+    background-color: #34D399;
+    color: #0C0C0E;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover:not(:disabled) {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           font-semibold text-sm
+           transition-all duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #8A8A8D;
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ECECEC;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           font-semibold text-sm
+           transition-all duration-200;
+    background: transparent;
+    border: 1px solid rgba(251, 113, 133, 0.2);
+    color: #FB7185;
+  }
+  .btn-danger:hover {
+    background: rgba(251, 113, 133, 0.1);
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           font-semibold text-sm
+           transition-all duration-200;
+    background-color: #E2B340;
+    color: #0C0C0E;
+  }
+  .btn-gold:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  /* ── Cards ── */
+  .card {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #141416;
+    transition: border-color 0.3s ease;
+  }
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.10);
+  }
+
+  /* ── Form fields ── */
+  .input {
+    @apply w-full rounded-xl text-sm transition-colors duration-200;
+    padding: 12px 16px;
+    background-color: #0C0C0E;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ECECEC;
+  }
+  .input::placeholder {
+    color: #3A3A3D;
+  }
+  .input:focus {
+    outline: none;
+    border-color: rgba(52, 211, 153, 0.5);
+  }
+
+  .select {
+    @apply w-full rounded-xl text-sm appearance-none cursor-pointer transition-colors duration-200;
+    padding: 12px 16px;
+    background-color: #0C0C0E;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ECECEC;
+  }
+  .select:focus {
+    outline: none;
+    border-color: rgba(52, 211, 153, 0.5);
+  }
+
+  .label {
+    @apply block mb-2;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5C5C5F;
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center rounded-full;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+  }
+
+  .badge-active {
+    @apply badge;
+    background: rgba(52, 211, 153, 0.08);
+    color: #34D399;
+  }
+
+  .badge-upcoming {
+    @apply badge;
+    background: rgba(255, 255, 255, 0.04);
+    color: #5C5C5F;
+  }
+
+  .badge-sold {
+    @apply badge;
+    background: rgba(226, 179, 64, 0.08);
+    color: #E2B340;
+  }
+
+  .badge-pending {
+    @apply badge;
+    background: rgba(226, 179, 64, 0.08);
+    color: #E2B340;
+  }
+
+  .badge-paid {
+    @apply badge;
+    background: rgba(52, 211, 153, 0.08);
+    color: #34D399;
+  }
+
+  /* ── Stat cards ── */
+  .stat-card {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #141416;
+    padding: 24px;
+  }
+
+  /* ── Typography ── */
+  .page-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ECECEC;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Sidebar navigation ── */
+  .sidebar-link {
+    @apply flex items-center gap-3 rounded-lg transition-all duration-200;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5C5C5F;
+  }
+  .sidebar-link:hover {
+    color: #8A8A8D;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-3 rounded-r-lg;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ECECEC;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid #34D399;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+
+  .font-serif {
+    font-family: "DM Serif Display", Georgia, serif;
+  }
+
+  .font-mono-num {
+    font-family: "DM Mono", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #232326; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #2E2E32; }
